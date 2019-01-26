@@ -1,0 +1,45 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+//---------------------------------------------------------------------------
+USEFORM("Unit1.cpp", Form1);
+USEFORM("Unit2.cpp", DM); /* TDataModule: File Type */
+USEFORM("Unit3.cpp", Main_Form);
+USEFORM("Unit4.cpp", Form2);
+USEFORM("Unit6.cpp", Shop);
+USEFORM("Unit7.cpp", Cleave);
+USEFORM("Unit5.cpp", Printm);
+//---------------------------------------------------------------------------
+WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+        try
+        {
+                 Application->Initialize();
+                 Application->CreateForm(__classid(TMain_Form), &Main_Form);
+                 Application->CreateForm(__classid(TForm1), &Form1);
+                 Application->CreateForm(__classid(TDM), &DM);
+                 Application->CreateForm(__classid(TForm2), &Form2);
+                 Application->CreateForm(__classid(TShop), &Shop);
+                 Application->CreateForm(__classid(TCleave), &Cleave);
+                 Application->CreateForm(__classid(TPrintm), &Printm);
+                 Application->Run();
+        }
+        catch (Exception &exception)
+        {
+                 Application->ShowException(&exception);
+        }
+        catch (...)
+        {
+                 try
+                 {
+                         throw Exception("");
+                 }
+                 catch (Exception &exception)
+                 {
+                         Application->ShowException(&exception);
+                 }
+        }
+        return 0;
+}
+//---------------------------------------------------------------------------
