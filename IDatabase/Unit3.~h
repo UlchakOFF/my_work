@@ -1,0 +1,92 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit3H
+#define Unit3H
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <Buttons.hpp>
+#include <DBGrids.hpp>
+#include <Grids.hpp>
+#include <DBCtrls.hpp>
+#include <Dialogs.hpp>
+#include <ExtDlgs.hpp>
+#include <Mask.hpp>
+#include <ExtCtrls.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+        TBitBtn *BitBtn1;
+        TBitBtn *BitBtn2;
+        TDBGrid *DBGrid1;
+        TDBGrid *DBGrid2;
+        TDBImage *DBImage1;
+        TOpenPictureDialog *OpenPictureDialog1;
+        TGroupBox *GroupBox1;
+        TLabel *Label1;
+        TLabel *Label2;
+        TLabel *Label3;
+        TLabel *Label4;
+        TDBEdit *DBEdit1;
+        TDBComboBox *DBComboBox1;
+        TDBEdit *DBEdit2;
+        TDBEdit *DBEdit3;
+        TBitBtn *BitBtn3;
+        TBitBtn *BitBtn4;
+        TBitBtn *BitBtn5;
+        TBitBtn *BitBtn6;
+        TBitBtn *BitBtn7;
+        TGroupBox *GroupBox2;
+        TEdit *Edit1;
+        TRadioButton *RadioButton1;
+        TRadioButton *RadioButton2;
+        TGroupBox *GroupBox3;
+        TLabel *Label5;
+        TLabel *Label6;
+        TDBComboBox *DBComboBox2;
+        TDBEdit *DBEdit4;
+        TBitBtn *BitBtn8;
+        TBitBtn *BitBtn9;
+        TBitBtn *BitBtn10;
+        TBitBtn *BitBtn11;
+        TGroupBox *GroupBox4;
+        TGroupBox *GroupBox5;
+        TBitBtn *BitBtn12;
+        TGroupBox *GroupBox6;
+        TDBCheckBox *DBCheckBox1;
+        TDBCheckBox *DBCheckBox2;
+        TDBNavigator *DBNavigator1;
+        TLabel *Label7;
+        TBitBtn *BitBtn13;
+        void __fastcall BitBtn2Click(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
+        void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+        void __fastcall BitBtn4Click(TObject *Sender);
+        void __fastcall BitBtn3Click(TObject *Sender);
+        void __fastcall BitBtn5Click(TObject *Sender);
+        void __fastcall BitBtn6Click(TObject *Sender);
+        void __fastcall BitBtn7Click(TObject *Sender);
+        void __fastcall Edit1Change(TObject *Sender);
+        void __fastcall BitBtn8Click(TObject *Sender);
+        void __fastcall BitBtn9Click(TObject *Sender);
+        void __fastcall BitBtn10Click(TObject *Sender);
+        void __fastcall BitBtn11Click(TObject *Sender);
+        void __fastcall DBGrid1TitleClick(TColumn *Column);
+        void __fastcall DBGrid2TitleClick(TColumn *Column);
+        void __fastcall DBImage1DblClick(TObject *Sender);
+        void __fastcall BitBtn12Click(TObject *Sender);
+        void __fastcall BitBtn1Click(TObject *Sender);
+        void __fastcall DBCheckBox1Click(TObject *Sender);
+        void __fastcall DBCheckBox2Click(TObject *Sender);
+        void __fastcall BitBtn13Click(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+        __fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

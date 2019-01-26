@@ -1,0 +1,299 @@
+object DM: TDM
+  OldCreateOrder = False
+  Left = 485
+  Top = 128
+  Height = 484
+  Width = 690
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=base.mdb;Persist Se' +
+      'curity Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 88
+    Top = 32
+  end
+  object ADOTable1: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Product'
+    Left = 54
+    Top = 96
+    object ADOTable1Article: TIntegerField
+      FieldName = 'Article'
+    end
+    object ADOTable1Type_product: TWideStringField
+      FieldName = 'Type_product'
+      Size = 255
+    end
+    object ADOTable1Name_product: TWideStringField
+      FieldName = 'Name_product'
+      Size = 255
+    end
+    object ADOTable1Price: TFloatField
+      FieldName = 'Price'
+    end
+    object ADOTable1Foto: TBlobField
+      FieldName = 'Foto'
+    end
+    object ADOTable1UnitP: TWideStringField
+      FieldName = 'UnitP'
+      Size = 4
+    end
+  end
+  object ADOTable2: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    IndexFieldNames = 'Article'
+    MasterFields = 'Article'
+    MasterSource = DataSource1
+    TableName = 'Delivery'
+    Left = 54
+    Top = 144
+    object ADOTable2Delivery_num: TAutoIncField
+      FieldName = 'Delivery_num'
+      ReadOnly = True
+    end
+    object ADOTable2Delivery_company: TWideStringField
+      FieldName = 'Delivery_company'
+      Size = 255
+    end
+    object ADOTable2Article: TIntegerField
+      FieldName = 'Article'
+    end
+    object ADOTable2Number_product: TFloatField
+      FieldName = 'Number_product'
+    end
+  end
+  object ADOTable3: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Users'
+    Left = 55
+    Top = 192
+    object ADOTable3FIO: TWideStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+    object ADOTable3Adress: TWideStringField
+      FieldName = 'Adress'
+      Size = 255
+    end
+    object ADOTable3Phone: TWideStringField
+      FieldName = 'Phone'
+      Size = 255
+    end
+    object ADOTable3Password: TWideStringField
+      FieldName = 'Password'
+      Size = 255
+    end
+  end
+  object ADOTable4: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Manager_R'
+    Left = 54
+    Top = 240
+    object ADOTable4FIO: TWideStringField
+      FieldName = 'FIO'
+      Size = 255
+    end
+  end
+  object ADOTable5: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    IndexFieldNames = 'Date_Shop'
+    MasterFields = 'Date_Shop'
+    MasterSource = DataSource8
+    TableName = 'Shop'
+    Left = 358
+    Top = 184
+    object ADOTable5ID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object ADOTable5Article: TIntegerField
+      FieldName = 'Article'
+    end
+    object ADOTable5Type_product: TWideStringField
+      FieldName = 'Type_product'
+      Size = 255
+    end
+    object ADOTable5Name_product: TWideStringField
+      FieldName = 'Name_product'
+      Size = 255
+    end
+    object ADOTable5Number_product: TFloatField
+      FieldName = 'Number_product'
+    end
+    object ADOTable5Price: TFloatField
+      FieldName = 'Price'
+    end
+    object ADOTable5Total_Price: TFloatField
+      FieldName = 'Total_Price'
+    end
+    object ADOTable5NManager: TWideStringField
+      FieldName = 'NManager'
+      Size = 255
+    end
+    object ADOTable5Date_Shop: TDateTimeField
+      FieldName = 'Date_Shop'
+    end
+    object ADOTable5Time_Shop: TWideStringField
+      FieldName = 'Time_Shop'
+      Size = 255
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 120
+    Top = 96
+  end
+  object DataSource2: TDataSource
+    DataSet = ADOTable2
+    Left = 120
+    Top = 144
+  end
+  object DataSource3: TDataSource
+    DataSet = ADOTable3
+    Left = 128
+    Top = 192
+  end
+  object DataSource4: TDataSource
+    DataSet = ADOTable4
+    Left = 128
+    Top = 240
+  end
+  object DataSource5: TDataSource
+    DataSet = ADOTable5
+    Left = 432
+    Top = 184
+  end
+  object DataSource6: TDataSource
+    DataSet = ADOTable6
+    Left = 128
+    Top = 344
+  end
+  object ADOTable6: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Basket'
+    Left = 56
+    Top = 344
+    object ADOTable6Article: TIntegerField
+      FieldName = 'Article'
+    end
+    object ADOTable6Name_product: TWideStringField
+      FieldName = 'Name_product'
+      Size = 255
+    end
+    object ADOTable6Number_product: TFloatField
+      FieldName = 'Number_product'
+    end
+    object ADOTable6Price: TFloatField
+      FieldName = 'Price'
+    end
+    object ADOTable6Total_Price: TFloatField
+      FieldName = 'Total_Price'
+    end
+  end
+  object DataSource7: TDataSource
+    DataSet = ADOQuery1
+    Left = 432
+    Top = 40
+  end
+  object ADOQuery1: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'Select * from Basket;'
+      '')
+    Left = 368
+    Top = 40
+    object ADOQuery1Article: TIntegerField
+      FieldName = 'Article'
+    end
+    object ADOQuery1Name_product: TWideStringField
+      FieldName = 'Name_product'
+      Size = 255
+    end
+    object ADOQuery1Number_product: TFloatField
+      FieldName = 'Number_product'
+    end
+    object ADOQuery1Price: TFloatField
+      FieldName = 'Price'
+    end
+    object ADOQuery1Total_Price: TFloatField
+      FieldName = 'Total_Price'
+    end
+  end
+  object ADOTable7: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'DShop'
+    Left = 368
+    Top = 120
+    object ADOTable7Date_Shop: TDateTimeField
+      FieldName = 'Date_Shop'
+    end
+  end
+  object DataSource8: TDataSource
+    DataSet = ADOTable7
+    Left = 432
+    Top = 120
+  end
+  object ADOQuery2: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'Select * from Delivery_company;')
+    Left = 360
+    Top = 272
+    object ADOQuery2Delivery_company: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'Delivery_company'
+      Size = 255
+    end
+    object ADOQuery2Phone: TWideStringField
+      DisplayWidth = 25
+      FieldName = 'Phone'
+      Size = 13
+    end
+  end
+  object DataSource9: TDataSource
+    DataSet = ADOQuery2
+    Left = 432
+    Top = 272
+  end
+  object ADOQuery3: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'Select * from DShop;')
+    Left = 360
+    Top = 344
+    object ADOQuery3Date_Shop: TDateTimeField
+      FieldName = 'Date_Shop'
+    end
+  end
+  object DataSource10: TDataSource
+    DataSet = ADOQuery3
+    Left = 432
+    Top = 344
+  end
+end

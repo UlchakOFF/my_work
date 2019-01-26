@@ -1,0 +1,196 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+#include "Unit1.h"
+#include "Unit2.h"
+#include "Unit3.h"
+#include "Unit4.h"
+#include "Unit5.h"
+#include "Unit6.h"
+#include "Unit7.h"
+#include "Unit8.h"
+#include "Unit9.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma link "frxClass"
+#pragma link "frxPreview"
+#pragma link "frxPreview"
+#pragma link "frxClass"
+#pragma link "frxPreview"
+#pragma link "frxClass"
+#pragma link "frxDBSet"
+#pragma resource "*.dfm"
+TForm3 *Form3;
+//---------------------------------------------------------------------------
+__fastcall TForm3::TForm3(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::FormCreate(TObject *Sender)
+{
+//Form3->QuickRep1->DataSet=DM->ADOQuery1;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::FormClose(TObject *Sender, TCloseAction &Action)
+{
+ShowMessage("Програмний продукт буде закрито!");
+        Application->Terminate();    
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+void __fastcall TForm3::BitBtn1Click(TObject *Sender)
+{
+Form3->frxPreview1->Print();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::BitBtn2Click(TObject *Sender)
+{
+
+Form2->Show();
+Form3->Visible=false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::BitBtn3Click(TObject *Sender)
+{
+Integer mistake =0;
+String dateNow;
+dateNow = DateToStr(Now());
+
+DM->ADOTable7->First();
+while(!DM->ADOTable7->Eof){
+if(DM -> ADOTable7 -> FieldByName("Date_Shop")-> AsString==dateNow){
+mistake++;
+}
+DM->ADOTable7->Next();
+}
+
+if(mistake==0){
+DM->ADOTable7->Insert();
+DM -> ADOTable7 -> FieldByName("Date_Shop")-> AsString=DateToStr(Now());
+DM->ADOTable7->Post();
+DM->ADOTable7->Active = False;
+DM->ADOTable7->Active = True;
+
+}
+else{
+
+
+
+
+
+//------------
+DM->ADOQuery1->First();
+
+while(!DM->ADOQuery1->Eof)
+{
+
+
+//DM->ADOTable7->Insert();
+//DM -> ADOTable7 -> FieldByName("Date_Shop")-> AsString=DateToStr(Now());
+//DM->ADOTable7->Post();
+//DM->ADOTable7->Active = False;
+//DM->ADOTable7->Active = True;
+
+
+DM->ADOTable5->Insert();
+
+
+DM -> ADOTable5 -> FieldByName("Article") -> AsInteger = DM->ADOQuery1->FieldByName("Article")->AsInteger;
+DM -> ADOTable5 -> FieldByName("Type_product") -> AsString = DM -> ADOTable1 -> FieldByName("Type_product") -> AsString;
+DM -> ADOTable5 -> FieldByName("Name_product") -> AsString = DM->ADOQuery1->FieldByName("Name_product")->AsString;
+DM -> ADOTable5 -> FieldByName("Number_product") -> AsFloat = DM->ADOQuery1->FieldByName("Number_product")->AsFloat;
+DM -> ADOTable5->FieldByName("UnitP")->AsString = DM->ADOQuery1->FieldByName("UnitP")->AsString;
+DM -> ADOTable5 -> FieldByName("Price") -> AsFloat = DM->ADOQuery1->FieldByName("Price")->AsFloat;
+DM -> ADOTable5 -> FieldByName("Total_Price") -> AsFloat =  DM->ADOQuery1->FieldByName("Total_Price")->AsFloat;
+DM -> ADOTable5 -> FieldByName("NManager") -> AsString = DM -> ADOTable4 -> FieldByName("FIO") -> AsString;
+DM -> ADOTable5 -> FieldByName("Date_Shop")->AsString =  DateToStr(Now());
+DM -> ADOTable5 -> FieldByName("Time_Shop")->AsString =  FormatDateTime("hh:mm:ss", Now());
+
+
+
+
+DM->ADOTable5->Post();
+DM->ADOTable5->Active = False;
+DM->ADOTable5->Active = True;
+
+DM->ADOQuery1->Next();
+}
+
+
+DM->ADOTable1->First();
+
+while(!DM->ADOTable1->Eof){
+
+DM->ADOQuery1->First();
+while(!DM->ADOQuery1->Eof)
+{
+
+if(DM -> ADOTable2 -> FieldByName("Article") -> AsInteger == DM -> ADOQuery1 -> FieldByName("Article") -> AsInteger)
+{
+
+           //   ShowMessage("Ура");
+ DM->ADOTable2->Edit();
+        DM -> ADOTable2 -> FieldByName("Number_product") -> AsFloat = DM -> ADOTable2 -> FieldByName("Number_product") -> AsFloat - DM->ADOQuery1->FieldByName("Number_product")->AsFloat;
+        DM->ADOTable2->Post();
+        DM->ADOTable2->Active = False;
+        DM->ADOTable2->Active = True;
+}
+
+DM->ADOQuery1->Next();
+}
+
+DM->ADOTable1->Next();
+
+}
+
+
+/*DM->ADOTable2->Edit();
+DM -> ADOTable2 -> FieldByName("Number_product") -> AsInteger = DM -> ADOTable2 -> FieldByName("Number_product") -> AsInteger - DM->ADOTable5->FieldByName("Number_product")->AsInteger;
+DM->ADOTable2->Post();
+DM->ADOTable2->Active = False;
+DM->ADOTable2->Active = True;    */
+
+
+
+
+
+
+
+DM->ADOQuery1->First();
+while(!DM->ADOQuery1->Eof)
+{
+DM->ADOQuery1->Delete();
+}
+//Form2->Edit2->Text="";
+
+
+
+
+
+
+
+
+
+
+
+ Form2->Show();
+ Form3->Visible=false;
+  //-----
+        }
+
+ }
+//---------------------------------------------------------------------------
+
+
